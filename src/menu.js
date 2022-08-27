@@ -4,6 +4,7 @@ import {Module} from "./core/module";
 import {BackgroundModule} from "./modules/background.module";
 import {ShapeModule} from "./modules/shape.module";
 import {ClicksModule} from "./modules/clicks.module";
+import { RandomSound } from './modules/sound.module';
 
 export const menuElementHTML = document.querySelector('.menu')
 
@@ -42,5 +43,9 @@ export class ContextMenu extends Menu {
         const clicksmodule = new ClicksModule('clicks', 'Аналитика кликов')
         menuElementHTML.innerHTML += clicksmodule.toHTML()
         clicksmodule.trigger()
+
+       const randomSound = new RandomSound('random-sound', 'Случайный звук')
+       menuElementHTML.innerHTML += randomSound.toHTML()
+       randomSound.trigger()
     }
 }
