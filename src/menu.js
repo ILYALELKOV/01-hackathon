@@ -1,6 +1,9 @@
 import {Menu} from './core/menu'
+import {getRandomColor} from "./utils";
+import {Module} from "./core/module";
+import {BackgroundModule} from "./modules/background.module";
 
-const menuElementHTML = document.querySelector('.menu')
+export const menuElementHTML = document.querySelector('.menu')
 
 export class ContextMenu extends Menu {
     open() {
@@ -24,4 +27,9 @@ export class ContextMenu extends Menu {
         })
     }
 
+    add() {
+        const backgroundModule = new BackgroundModule('background', 'Поменять цвет')
+        menuElementHTML.innerHTML += backgroundModule.toHTML()
+        backgroundModule.trigger()
+    }
 }
