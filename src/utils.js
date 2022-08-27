@@ -15,20 +15,14 @@ export function getRandomColor() {
 }
 
 
-
-
-
-export function getRandomSound(){
-  new Audio(`https://s3.amazonaws.com/freecodecamp/simonSound${Math.round(Math.random()*4)}.mp3`).play()
-  console.log('random sound')
-
+export function beep(gz) { 
+  var ctx = new AudioContext();
+  var oscillator = ctx.createOscillator();
+  oscillator.frequency.value = gz;
+  oscillator.connect(ctx.destination);
+  oscillator.start();
+  oscillator.stop(0.5);
 }
 
 
-
-
-  //var index = Math.floor(Math.random() * 1000) % mySounds.length;
-  //  var id = mySounds[index];
-  //  var audioElement = document.getElementById(id);
-  //  audioElement.play();
 
