@@ -2,6 +2,7 @@ import {Menu} from './core/menu'
 import {getRandomColor} from "./utils";
 import {Module} from "./core/module";
 import {BackgroundModule} from "./modules/background.module";
+import {ShapeModule} from "./modules/shape.module";
 
 export const menuElementHTML = document.querySelector('.menu')
 
@@ -31,5 +32,10 @@ export class ContextMenu extends Menu {
         const backgroundModule = new BackgroundModule('background', 'Поменять цвет')
         menuElementHTML.innerHTML += backgroundModule.toHTML()
         backgroundModule.trigger()
+
+
+        const test = new ShapeModule('shape', 'Создать фигуру')
+        menuElementHTML.innerHTML += test.toHTML()
+        test.trigger()
     }
 }
