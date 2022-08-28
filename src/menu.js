@@ -6,6 +6,7 @@ import {ShapeModule} from "./modules/shape.module"
 import {ClicksModule} from "./modules/clicks.module"
 import {RandomSound} from './modules/sound.module'
 import {Random_message} from "./modules/random_message.module"
+import {SearchModule} from "./modules/search.module";
 
 export const menuElementHTML = document.querySelector('.menu')
 
@@ -51,5 +52,9 @@ export class ContextMenu extends Menu {
         const randomMessage = new Random_message('random-message', 'Анекдот')
         menuElementHTML.innerHTML += randomMessage.toHTML()
         randomMessage.trigger()
+
+        const search = new SearchModule('search', 'Запустить поиск')
+        menuElementHTML.innerHTML += search.toHTML()
+        search.trigger()
     }
 }
