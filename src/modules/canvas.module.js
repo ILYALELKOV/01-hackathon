@@ -1,66 +1,64 @@
-import { Module } from "../core/module";
-import { menuElementHTML } from "../menu";
-import { getRandomColor, random } from "../utils";
+import {Module} from "../core/module"
+import {menuElementHTML} from "../menu"
+import {getRandomColor} from "../utils"
 
 export class CanvasModule extends Module {
-	trigger() { 
-        
-		menuElementHTML.addEventListener("click", (event) => {
-			if (event.target.dataset.type === "canvas") {
-				const k = Math.random() * 3.5 + 0.5;
-                const duration = 0.3; 
-                const delay = 2; 
-                
-				const [innerWidth, innerHeight] = [
-					window.innerWidth,
-					window.innerHeight,
-				];
+    trigger() {
 
-                const [canvasWidth, canvasHeight] = [100 * k, 100 * k]; 
-				let canvas, ctx;			
-                canvas = document.createElement("canvas");
-				canvas.width = canvasWidth;
-				canvas.height = canvasHeight;
+        menuElementHTML.addEventListener("click", (event) => {
+            if (event.target.dataset.type === "canvas") {
+                const k = Math.random() * 3.5 + 0.5
+                const duration = 0.3
+                const delay = 2
 
-				canvas.style.opacity = 0;
-				canvas.style.transition = `All ${duration}s`; 
+                const [innerWidth, innerHeight] = [
+                    window.innerWidth,
+                    window.innerHeight,
+                ]
 
-				ctx = canvas.getContext("2d");  
-				ctx.fillStyle = getRandomColor(); 
-				ctx.beginPath(); 
+                const [canvasWidth, canvasHeight] = [100 * k, 100 * k]
+                let canvas, ctx
+                canvas = document.createElement("canvas")
+                canvas.width = canvasWidth
+                canvas.height = canvasHeight
 
-				for (let i = 0; i < Math.round(Math.random() * 27 + 4); i++) {
-					const [ranX, ranY] = [
-						Math.random() * canvasWidth,
-						Math.random() * canvasHeight,
-					];
-					ctx.lineTo(ranX, ranY); 
-				}
-				ctx.fill();
-				ctx.closePath(); 
+                canvas.style.opacity = '0'
+                canvas.style.transition = `All ${duration}s`
 
-                
-				canvas.style.position = "absolute";
-				canvas.style.left = `${
-					Math.random() * (innerWidth - canvasWidth) 
-				}px`;
-				canvas.style.top = `${
-					Math.random() * (innerHeight - canvasHeight)
-				}px`;
+                ctx = canvas.getContext("2d")
+                ctx.fillStyle = getRandomColor()
+                ctx.beginPath()
 
-               
-				document.body.appendChild(canvas);
+                for (let i = 0; i < Math.round(Math.random() * 27 + 4); i++) {
+                    const [ranX, ranY] = [
+                        Math.random() * canvasWidth,
+                        Math.random() * canvasHeight,
+                    ]
+                    ctx.lineTo(ranX, ranY)
+                }
+                ctx.fill()
+                ctx.closePath()
 
-				setTimeout(() => {
-					canvas.style.opacity = 1;
-					setTimeout(() => {
-						canvas.style.opacity = 0;
-						setTimeout(() => {
-							canvas.remove();
-						}, duration * 1000);
-					}, (duration + delay)* 1000);
-				}, 0);
-			}
-		});
-	}
+                canvas.style.position = "absolute"
+                canvas.style.left = `${
+                    Math.random() * (innerWidth - canvasWidth)
+                }px`
+                canvas.style.top = `${
+                    Math.random() * (innerHeight - canvasHeight)
+                }px`
+
+                document.body.appendChild(canvas)
+
+                setTimeout(() => {
+                    canvas.style.opacity = '1'
+                    setTimeout(() => {
+                        canvas.style.opacity = '0'
+                        setTimeout(() => {
+                            canvas.remove()
+                        }, duration * 1000)
+                    }, (duration + delay) * 1000)
+                }, 0)
+            }
+        })
+    }
 }

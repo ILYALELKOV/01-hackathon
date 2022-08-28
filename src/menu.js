@@ -1,13 +1,13 @@
 import {Menu} from './core/menu'
-import {getRandomColor} from "./utils"
-import {Module} from "./core/module"
 import {BackgroundModule} from "./modules/background.module"
 import {ShapeModule} from "./modules/shape.module"
 import {ClicksModule} from "./modules/clicks.module"
 import {RandomSound} from './modules/sound.module'
 import {Random_message} from "./modules/random_message.module"
-import {SearchModule} from "./modules/search.module";
-import {TimerModule} from "./modules/timer.module";
+import {SearchModule} from "./modules/search.module"
+import {TimerModule} from "./modules/timer.module"
+import {CanvasModule} from "./modules/canvas.module"
+import {MapWorld} from "./modules/map.module"
 
 export const menuElementHTML = document.querySelector('.menu')
 
@@ -27,10 +27,6 @@ export class ContextMenu extends Menu {
                 menuElementHTML.classList.remove('open')
             }
         })
-
-        // menuElementHTML.addEventListener('click', event => {
-        //     event.stopPropagation()
-        // })
     }
 
     add() {
@@ -61,5 +57,13 @@ export class ContextMenu extends Menu {
         const timer = new TimerModule('timer', 'Запустить таймер')
         menuElementHTML.innerHTML += timer.toHTML()
         timer.trigger()
+
+        const canvasModule = new CanvasModule("canvas", "Создать абстракцию")
+        menuElementHTML.innerHTML += canvasModule.toHTML()
+        canvasModule.trigger()
+
+        const mapModule = new MapWorld("map", "Карта мира")
+        menuElementHTML.innerHTML += mapModule.toHTML()
+        mapModule.trigger()
     }
 }

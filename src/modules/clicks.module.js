@@ -1,6 +1,5 @@
 import {Module} from '../core/module'
 import {menuElementHTML} from "../menu"
-import {getRandomColor} from "../utils"
 
 export class ClicksModule extends Module {
     trigger() {
@@ -20,8 +19,6 @@ export class ClicksModule extends Module {
             if (event.target.dataset.type === 'clicks' && !flag) {
                 flag = true
 
-                // const elementBlock = document.createElement('div')
-
                 const elementBlockTimer = document.createElement('div')
                 elementBlockTimer.style.width = '400px'
                 elementBlockTimer.style.height = '250px'
@@ -36,8 +33,8 @@ export class ClicksModule extends Module {
                 elementBlockTimer.style.boxShadow = '0 8px 2px #000'
                 elementBlockTimer.style.background = 'url(../src/img/time.jpg)'
                 elementBlockTimer.style.borderStyle = 'groove'
+                elementBlockTimer.style.marginTop = '20px'
 
-                // elementBlock.append(elementBlockTimer)
                 document.body.prepend(elementBlockTimer)
 
                 let timer = 25

@@ -1,5 +1,4 @@
 import {Module} from '../core/module'
-import {getRandomColor} from "../utils"
 import {menuElementHTML} from '../menu'
 
 export class Random_message extends Module {

@@ -1,7 +1,5 @@
 import {Module} from '../core/module'
-import {getRandomColor} from "../utils"
 import {menuElementHTML} from '../menu'
-
 
 export class SearchModule extends Module {
     trigger() {
@@ -19,8 +17,6 @@ export class SearchModule extends Module {
                 formElement.style.marginTop = '200px'
                 formElement.action = 'https://yandex.ru/search/'
 
-                blockGoogle.appendChild(formElement)
-
                 const inputElement = document.createElement('input')
                 inputElement.type = 'text'
                 inputElement.name = 'text'
@@ -32,8 +28,6 @@ export class SearchModule extends Module {
                 inputElement.style.paddingLeft = '20px'
                 inputElement.style.borderStyle = 'none'
                 inputElement.style.boxShadow = '0px 3px 3px #000'
-
-                formElement.appendChild(inputElement)
 
                 const buttonSearch = document.createElement('button')
                 buttonSearch.className = 'button'
@@ -49,8 +43,9 @@ export class SearchModule extends Module {
                 buttonSearch.style.letterSpacing = '1.5px'
                 buttonSearch.style.boxShadow = '0px 3px 3px #000'
 
+                blockGoogle.appendChild(formElement)
+                formElement.appendChild(inputElement)
                 formElement.appendChild(buttonSearch)
-
                 document.body.append(blockGoogle)
 
                 buttonSearch.addEventListener('mouseenter', () => {
