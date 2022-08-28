@@ -35,22 +35,23 @@ export class ClicksModule extends Module {
                 elementBlockTimer.style.margin = '0 auto'
                 elementBlockTimer.style.boxShadow = '0 8px 2px #000'
                 elementBlockTimer.style.background = 'url(../src/img/time.jpg)'
+                elementBlockTimer.style.borderStyle = 'groove'
 
                 // elementBlock.append(elementBlockTimer)
                 document.body.prepend(elementBlockTimer)
 
-                let timer = 30
+                let timer = 25
                 swal(`Проверим твою реакцию? Сейчас тебе нужно набрать максимальное число кликов. Скорее, время уже идет)`)
 
-                setInterval(() => {
+                const observerClick = setInterval(() => {
                     elementBlockTimer.textContent = `Осталось: ${timer}`
-
                     if (timer === 0) {
                         elementBlockTimer.remove()
                         swal(`Поздравляем! Твои результаты: одинарный клик = ${click}; двойной клик = ${dblclick}`)
                         click = 0
                         dblclick = 0
                         flag = false
+                        clearInterval(observerClick)
                     }
                     timer -= 1
                 }, 1000)

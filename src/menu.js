@@ -7,6 +7,7 @@ import {ClicksModule} from "./modules/clicks.module"
 import {RandomSound} from './modules/sound.module'
 import {Random_message} from "./modules/random_message.module"
 import {SearchModule} from "./modules/search.module";
+import {TimerModule} from "./modules/timer.module";
 
 export const menuElementHTML = document.querySelector('.menu')
 
@@ -56,5 +57,9 @@ export class ContextMenu extends Menu {
         const search = new SearchModule('search', 'Запустить поиск')
         menuElementHTML.innerHTML += search.toHTML()
         search.trigger()
+
+        const timer = new TimerModule('timer', 'Запустить таймер')
+        menuElementHTML.innerHTML += timer.toHTML()
+        timer.trigger()
     }
 }
