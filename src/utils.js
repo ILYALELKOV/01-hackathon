@@ -14,7 +14,6 @@ export function getRandomColor() {
   return color
 }
 
-
 export function beep(gz) { 
   var ctx = new AudioContext();
   var oscillator = ctx.createOscillator();
