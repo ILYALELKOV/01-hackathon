@@ -4,7 +4,8 @@ import {Module} from "./core/module";
 import {BackgroundModule} from "./modules/background.module";
 import {ShapeModule} from "./modules/shape.module";
 import {ClicksModule} from "./modules/clicks.module";
-import { RandomSound } from './modules/sound.module';
+import {RandomSound} from './modules/sound.module';
+import {Random_message} from "./modules/random_message.module";
 
 export const menuElementHTML = document.querySelector('.menu')
 
@@ -25,9 +26,9 @@ export class ContextMenu extends Menu {
             }
         })
 
-        menuElementHTML.addEventListener('click', event => {
-            event.stopPropagation()
-        })
+        // menuElementHTML.addEventListener('click', event => {
+        //     event.stopPropagation()
+        // })
     }
 
     add() {
@@ -35,17 +36,20 @@ export class ContextMenu extends Menu {
         menuElementHTML.innerHTML += backgroundModule.toHTML()
         backgroundModule.trigger()
 
+        const shapeModule = new ShapeModule('shape', 'Создать фигуру')
+        menuElementHTML.innerHTML += shapeModule.toHTML()
+        shapeModule.trigger()
 
-        const shapemodule = new ShapeModule('shape', 'Создать фигуру')
-        menuElementHTML.innerHTML += shapemodule.toHTML()
-        shapemodule.trigger()
+        const clicksModule = new ClicksModule('clicks', 'Аналитика кликов')
+        menuElementHTML.innerHTML += clicksModule.toHTML()
+        clicksModule.trigger()
 
-        const clicksmodule = new ClicksModule('clicks', 'Аналитика кликов')
-        menuElementHTML.innerHTML += clicksmodule.toHTML()
-        clicksmodule.trigger()
+        const randomSound = new RandomSound('random-sound', 'Случайный звук')
+        menuElementHTML.innerHTML += randomSound.toHTML()
+        randomSound.trigger()
 
-       const randomSound = new RandomSound('random-sound', 'Случайный звук')
-       menuElementHTML.innerHTML += randomSound.toHTML()
-       randomSound.trigger()
+        const randomMessage = new Random_message('random-message', 'Анекдот')
+        menuElementHTML.innerHTML += randomMessage.toHTML()
+        randomMessage.trigger()
     }
 }

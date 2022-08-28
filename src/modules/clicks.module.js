@@ -1,11 +1,12 @@
 import {Module} from '../core/module'
-import {menuElementHTML} from "../menu";
-import {getRandomColor} from "../utils";
+import {menuElementHTML} from "../menu"
+import {getRandomColor} from "../utils"
 
 export class ClicksModule extends Module {
     trigger() {
         let click = 0
         let dblclick = 0
+        let flag = false
 
         document.body.addEventListener('click', () => {
             click += 1
@@ -16,8 +17,10 @@ export class ClicksModule extends Module {
         })
 
         menuElementHTML.addEventListener('click', event => {
-            if (event.target.dataset.type === 'clicks') {
-                const elementBlock = document.createElement('div')
+            if (event.target.dataset.type === 'clicks' && !flag) {
+                flag = true
+
+                // const elementBlock = document.createElement('div')
 
                 const elementBlockTimer = document.createElement('div')
                 elementBlockTimer.style.width = '400px'
@@ -33,8 +36,8 @@ export class ClicksModule extends Module {
                 elementBlockTimer.style.boxShadow = '0 8px 2px #000'
                 elementBlockTimer.style.background = 'url(../time.jpg)'
 
-                elementBlock.append(elementBlockTimer)
-                document.body.prepend(elementBlock)
+                // elementBlock.append(elementBlockTimer)
+                document.body.prepend(elementBlockTimer)
 
                 let timer = 5
                 swal(`Проверим твою реакцию? Сейчас тебе нужно набрать максимальное число кликов. Скорее, время уже идет)`)
@@ -43,11 +46,11 @@ export class ClicksModule extends Module {
                     elementBlockTimer.textContent = `Осталось: ${timer}`
 
                     if (timer === 0) {
-                        elementBlock.remove()
                         elementBlockTimer.remove()
-                        swal(`Поздравляем! Ваши результаты: одинарный клик = ${click}; двойной клик = ${dblclick}`)
+                        swal(`Поздравляем! Твои результаты: одинарный клик = ${click}; двойной клик = ${dblclick}`)
                         click = 0
                         dblclick = 0
+                        flag = false
                     }
                     timer -= 1
                 }, 1000)
