@@ -32,14 +32,14 @@ export class TimerModule extends Module {
                     const observerTime = setInterval(() => {
                         document.body.prepend(timerElement)
                         timerElement.textContent = `Осталось секунд: ${counter}`
-                        counter -= 1
 
-                        if (counter === -1) {
+                        if (counter === 0) {
                             timerElement.remove()
                             clearInterval(observerTime)
                             flagTime = false
                             swal('Время вышло!')
                         }
+                        counter -= 1
                     }, 1000)
                 }
             }
