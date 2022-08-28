@@ -2,7 +2,6 @@ import {Module} from '../core/module'
 import {menuElementHTML} from '../menu'
 import {getRandomColor, random} from "../utils"
 
-
 export class ShapeModule extends Module {
     trigger() {
         menuElementHTML.addEventListener('click', event => {

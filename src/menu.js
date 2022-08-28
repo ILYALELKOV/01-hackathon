@@ -1,11 +1,11 @@
 import {Menu} from './core/menu'
-import {getRandomColor} from "./utils";
-import {Module} from "./core/module";
-import {BackgroundModule} from "./modules/background.module";
-import {ShapeModule} from "./modules/shape.module";
-import {ClicksModule} from "./modules/clicks.module";
-import {RandomSound} from './modules/sound.module';
-import {Random_message} from "./modules/random_message.module";
+import {getRandomColor} from "./utils"
+import {Module} from "./core/module"
+import {BackgroundModule} from "./modules/background.module"
+import {ShapeModule} from "./modules/shape.module"
+import {ClicksModule} from "./modules/clicks.module"
+import {RandomSound} from './modules/sound.module'
+import {Random_message} from "./modules/random_message.module"
 
 export const menuElementHTML = document.querySelector('.menu')
 

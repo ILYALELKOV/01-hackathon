@@ -14,14 +14,13 @@ export function getRandomColor() {
   return color
 }
 
-
 export function beep(gz) { 
-  var ctx = new AudioContext();
-  var oscillator = ctx.createOscillator();
-  oscillator.frequency.value = gz;
-  oscillator.connect(ctx.destination);
-  oscillator.start();
-  oscillator.stop(0.5);
+  let ctx = new AudioContext()
+  let oscillator = ctx.createOscillator()
+  oscillator.frequency.value = gz
+  oscillator.connect(ctx.destination)
+  oscillator.start()
+  oscillator.stop(0.5)
 }
 
 

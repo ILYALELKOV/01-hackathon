@@ -34,12 +34,12 @@ export class ClicksModule extends Module {
                 elementBlockTimer.style.lineHeight = '65px'
                 elementBlockTimer.style.margin = '0 auto'
                 elementBlockTimer.style.boxShadow = '0 8px 2px #000'
-                elementBlockTimer.style.background = 'url(../time.jpg)'
+                elementBlockTimer.style.background = 'url(../src/img/time.jpg)'
 
                 // elementBlock.append(elementBlockTimer)
                 document.body.prepend(elementBlockTimer)
 
-                let timer = 5
+                let timer = 30
                 swal(`Проверим твою реакцию? Сейчас тебе нужно набрать максимальное число кликов. Скорее, время уже идет)`)
 
                 setInterval(() => {
