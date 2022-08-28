@@ -18,7 +18,7 @@ export class Random_message extends Module {
                 flag = true
 
                 const messageElement = document.createElement('div')
-                messageElement.style.background = '#8ff8f8'
+                messageElement.style.background = '#1E90FF'
                 messageElement.style.width = '400px'
                 messageElement.style.height = '200px'
                 messageElement.style.fontSize = '25px'
@@ -27,6 +27,7 @@ export class Random_message extends Module {
                 messageElement.style.borderRadius = '20px'
                 messageElement.style.fontWeight = '500'
                 messageElement.style.boxShadow = '0 8px 2px #000'
+                messageElement.style.borderStyle = 'groove'
 
                 arrayMessage.forEach(item => messageElement.textContent = item)
                 arrayMessage.pop()
