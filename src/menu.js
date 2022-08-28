@@ -1,51 +1,58 @@
-import {Menu} from './core/menu'
-import {getRandomColor} from "./utils";
-import {Module} from "./core/module";
-import {BackgroundModule} from "./modules/background.module";
-import {ShapeModule} from "./modules/shape.module";
-import {ClicksModule} from "./modules/clicks.module";
-import { RandomSound } from './modules/sound.module';
+import { Menu } from "./core/menu";
+import { getRandomColor } from "./utils";
+import { Module } from "./core/module";
+import { BackgroundModule } from "./modules/background.module";
+import { ShapeModule } from "./modules/shape.module";
+import { ClicksModule } from "./modules/clicks.module";
+import { RandomSound } from "./modules/sound.module";
+import { CanvasModule } from "./modules/canvas.module";
 
-export const menuElementHTML = document.querySelector('.menu')
+export const menuElementHTML = document.querySelector(".menu");
 
 export class ContextMenu extends Menu {
-    open() {
-        document.addEventListener('contextmenu', event => {
-            event.preventDefault()
-            menuElementHTML.classList.add('open')
-            menuElementHTML.style.top = `${event.clientY}px`
-            menuElementHTML.style.left = `${event.clientX}px`
-        })
-    }
+	open() {
+		document.addEventListener("contextmenu", (event) => {
+			event.preventDefault();
+			menuElementHTML.classList.add("open");
+			menuElementHTML.style.top = `${event.clientY}px`;
+			menuElementHTML.style.left = `${event.clientX}px`;
+		});
+	}
 
-    close() {
-        document.addEventListener('click', event => {
-            if (event.button !== 2) {
-                menuElementHTML.classList.remove('open')
-            }
-        })
+	close() {
+		document.addEventListener("click", (event) => {
+			if (event.button !== 2) {
+				menuElementHTML.classList.remove("open");
+			}
+		});
 
-        menuElementHTML.addEventListener('click', event => {
-            event.stopPropagation()
-        })
-    }
+		menuElementHTML.addEventListener("click", (event) => {
+			event.stopPropagation();
+		});
+	}
 
-    add() {
-        const backgroundModule = new BackgroundModule('background', 'Поменять цвет')
-        menuElementHTML.innerHTML += backgroundModule.toHTML()
-        backgroundModule.trigger()
+	add() {
+		const backgroundModule = new BackgroundModule(
+			"background",
+			"Поменять цвет"
+		);
+		menuElementHTML.innerHTML += backgroundModule.toHTML();
+		backgroundModule.trigger();
 
+		const shapemodule = new ShapeModule("shape", "Создать фигуру");
+		menuElementHTML.innerHTML += shapemodule.toHTML();
+		shapemodule.trigger();
 
-        const shapemodule = new ShapeModule('shape', 'Создать фигуру')
-        menuElementHTML.innerHTML += shapemodule.toHTML()
-        shapemodule.trigger()
+		const clicksmodule = new ClicksModule("clicks", "Аналитика кликов");
+		menuElementHTML.innerHTML += clicksmodule.toHTML();
+		clicksmodule.trigger();
 
-        const clicksmodule = new ClicksModule('clicks', 'Аналитика кликов')
-        menuElementHTML.innerHTML += clicksmodule.toHTML()
-        clicksmodule.trigger()
+		const randomSound = new RandomSound("random-sound", "Случайный звук");
+		menuElementHTML.innerHTML += randomSound.toHTML();
+		randomSound.trigger();
 
-       const randomSound = new RandomSound('random-sound', 'Случайный звук')
-       menuElementHTML.innerHTML += randomSound.toHTML()
-       randomSound.trigger()
-    }
+		const canvasModule = new CanvasModule("canvas", "Создать абстракцию");
+		menuElementHTML.innerHTML += canvasModule.toHTML();
+		canvasModule.trigger();
+	}
 }

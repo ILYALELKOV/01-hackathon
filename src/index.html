@@ -1,20 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Context Menu</title>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Context Menu</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// window.onload = function () {
+			// 	function genFigure() {
+      //     const [innerWidth, innerHeight] = [window.innerWidth, window.innerHeight];
+      //     const ranColor =
+			// 			"#" + Math.floor(Math.random() * 16777215).toString(16);
 
-  <ul class="menu" id="menu">
+      //     let ctx, canvas;
+  		// 		const k = Math.random() * 3.5 + 0.5;
+	  	// 		const [convasWidth, convasHeight] = [100 * k, 100 * k];
+      //     canvas = document.createElement("canvas");
+			// 		canvas.width = convasWidth;
+			// 		canvas.height = convasHeight;
+      //     ctx = canvas.getContext("2d");
+			// 		ctx.fillStyle = ranColor;
+			// 		ctx.beginPath();
 
-  </ul>
+			// 		for (
+			// 			let i = 0;
+			// 			i < Math.round(Math.random() * 27 + 3);
+			// 			i++
+			// 		) {
+			// 			const [ranX, ranY] = [
+			// 				Math.random() * convasWidth,
+			// 				Math.random() * convasHeight,
+			// 			];
+			// 			ctx.lineTo(ranX, ranY);
+			// 		}
+			// 		ctx.fill();
+			// 		ctx.closePath();
 
+      //     canvas.style.position = 'absolute';					
+      //     canvas.style.left = `${Math.random()*(innerWidth - convasWidth)}px`;
+			// 		canvas.style.top = `${Math.random()*(innerHeight - convasHeight)}px`;
+      //     document.body.appendChild(canvas);
+			// 	}
+			// 	genFigure();
+			// };
+		</script>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="menu.js"></script>
-</body>
+		<ul class="menu" id="menu"></ul>
+
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="menu.js"></script>
+	</body>
 </html>

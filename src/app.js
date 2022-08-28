@@ -9,21 +9,8 @@ contex.add()
 
 
 
-// создаем аудио контекст
-var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 
-// создаем OscillatorNode - генератор
-var oscillator = audioCtx.createOscillator();
 
-oscillator.type = 'square';
-// задаем частоту в герцах
-oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
-oscillator.connect(audioCtx.destination);
-
-// запускаем пищалку
-oscillator.start();
-// говорим "горшочек не вари" через 300 мс
-setTimeout(e => oscillator.stop(), 1000);
 
 
 
